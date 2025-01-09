@@ -20,6 +20,11 @@ namespace FileDataUpdateAndDelete
 		return Info.accountName + S + Info.pinCode + S + Info.fullName + S + Info.Phone + S + to_string(Info.accountBalance);
 	}
 
+
+
+
+
+
 	//This function is responsible for deleting and updating the data in the file
 	void fillDataInFileAndUbdate(Inpouts::stInfo Info, string Line, string S, vector<Inpouts::stInfo> infoClients, string updateOrDeleteUser, bool ActiveFunction = true, bool deletOrUpdate = true)
 	{
@@ -81,25 +86,66 @@ namespace FileDataUpdateAndDelete
 		file.close();
 	}
 
-	//Thes funtion is responsible for filling the array vector. 
-	vector<Inpouts::stInfo> fillDataInVector(string Line, string S)
-	{
-		vector<Inpouts::stInfo> infoClients;
-		Inpouts::stInfo Info;
-		fstream file(nameFile);
 
-		if (file.is_open())
-		{
-			while (getline(file >> ws, Line))
+	// This function is responsible for diposit and withdraw.
+	void depositOrWithdraw(Inpouts::stInfo Info, string Line, string S, string accountName, vector<Inpouts::stInfo> infoClients, float depositOrWithdraw, bool Active = true) {
+
+
+		fstream file;
+
+
+			file.open(nameFile, ios::out);
+
+			for (int i = 0; i < infoClients.size(); i++)
 			{
-				Info = Inpouts::converStringTostInfo(Line, S);
-				infoClients.push_back(Info);
+				if (accountName == infoClients.at(i).accountName)
+				{
+					if (Active)
+						infoClients.at(i).accountBalance += depositOrWithdraw;
+					else {
+						infoClients.at(i).accountBalance -= depositOrWithdraw;
+
+					}
+					Line = convertInfoToLine(infoClients.at(i), S);
+					file << Line << "\n";
+				}
+				else
+				{
+					Line = convertInfoToLine(infoClients.at(i), S);
+					file << Line << "\n";
+				}
 			}
+
+
+
+
 		}
 
-		file.close();
 
-		return infoClients;
+
+
+
+
+
+		//Thes funtion is responsible for filling the array vector. 
+		vector<Inpouts::stInfo> fillDataInVector(string Line, string S)
+		{
+			vector<Inpouts::stInfo> infoClients;
+			Inpouts::stInfo Info;
+			fstream file(nameFile);
+
+			if (file.is_open())
+			{
+				while (getline(file >> ws, Line))
+				{
+					Info = Inpouts::converStringTostInfo(Line, S);
+					infoClients.push_back(Info);
+				}
+			}
+
+			file.close();
+
+			return infoClients;
+		}
+
 	}
-
-}

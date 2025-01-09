@@ -11,6 +11,7 @@ namespace PrintDataClientsAndMenues
 {
 	inline void titelsMenue(string Message)
 	{
+		system("cls");
 		cout << "---------------------------------------------------\n\n";
 		cout << "\t\t" << Message;
 		cout << "\n\n---------------------------------------------------\n";
@@ -18,7 +19,7 @@ namespace PrintDataClientsAndMenues
 
 	inline void mainInfoNames()
 	{
-
+		system("cls");
 		cout << "===========================================================================================\n";
 		cout << "| ";
 		cout << left << setw(15) << "Account Name";
@@ -63,21 +64,39 @@ namespace PrintDataClientsAndMenues
 		cout << "---------------------------------------------------\n";
 	}
 
-	inline short actions(string Message)
+	inline short actions(string Message, bool Active = true)
 	{
 		system("cls");
 		short Action;
-		cout << "\t" << Message << "\n";
-		cout << "=================================\n\n";
-		cout << "\t1 => Show Client List.\n";
-		cout << "\t2 => Add New Client\n";
-		cout << "\t3 => Delete Client.\n";
-		cout << "\t4 => Update Client info.\n";
-		cout << "\t5 => Find Client.\n";
-		cout << "\t6 => Exit\n\n";
-		cout << "=================================\n";
-		Action = Inpouts::inpouts_short_user("Choose What do you want to do? [1 to 6]?");
+		string Ask = "";
 
+		if (Active) {
+			cout << "\t" << Message << "\n";
+			cout << "=================================\n\n";
+			cout << "\t1 => Show Client List.\n";
+			cout << "\t2 => Add New Client\n";
+			cout << "\t3 => Delete Client.\n";
+			cout << "\t4 => Update Client info.\n";
+			cout << "\t5 => Find Client.\n";
+			cout << "\t6 => Transactions.\n";
+			cout << "\t7 => Exit\n\n";
+			cout << "=================================\n";
+			Ask = "Choose What do you want to do? [1 to 7]?";
+		}
+		else {
+
+			cout << "\t" << Message << "\n";
+			cout << "=================================\n\n";
+			cout << "\t1 => Deposit.\n";
+			cout << "\t2 => Withdraw\n";
+			cout << "\t3 => Total Balance.\n";
+			cout << "\t4 => Main Menue\n\n";
+			cout << "=================================\n";
+
+			Ask = "Choose What do you want to do? [1 to 4]?";
+		}
+
+		Action = Inpouts::inpouts_short_user(Ask);
 		return Action;
 	}
 

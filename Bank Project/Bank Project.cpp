@@ -84,13 +84,13 @@ static Inpouts::stInfo clientInfo(vector<Inpouts::stInfo> accountsName, string L
 }
 
 //This function is responsible for deleting the clients and returns True or false
-static bool checkAndDeleteClients(vector<Inpouts::stInfo>& infoClients, string& DeleteUser, Inpouts::stInfo& Info)
+static bool checkAndDeleteClients(vector<Inpouts::stInfo>& infoClients, string& accountName, Inpouts::stInfo& Info)
 {
 	Info;
 	for (int i = 0; i < infoClients.size(); i++)
 	{
 
-		if (infoClients.at(i).accountName == DeleteUser)
+		if (infoClients.at(i).accountName == accountName)
 		{
 
 			Info = infoClients.at(i);
@@ -102,7 +102,7 @@ static bool checkAndDeleteClients(vector<Inpouts::stInfo>& infoClients, string& 
 }
 
 //This function is responsible for starting the app
-static void startApp(short actionUser, Inpouts::stInfo Info, string Line, string S, char newAdd, char YorN, vector<Inpouts::stInfo> infoClients, string deleteUser, string updateUser, string findUser)
+static void startApp(short actionUser, Inpouts::stInfo Info, string Line, string S, char newAdd, char YorN, vector<Inpouts::stInfo> infoClients, string accountName, float depositOrWithdraw)
 {
 	do
 	{
@@ -133,7 +133,7 @@ static void startApp(short actionUser, Inpouts::stInfo Info, string Line, string
 
 				Line = FileDataUpdateAndDelete::convertInfoToLine(Info, S);
 
-				FileDataUpdateAndDelete::fillDataInFileAndUbdate(Info, Line, S, infoClients, deleteUser);
+				FileDataUpdateAndDelete::fillDataInFileAndUbdate(Info, Line, S, infoClients, accountName);
 
 				newAdd = Inpouts::inpouts_char_user("Do you want to add new Client? Y/N :");
 
@@ -144,11 +144,11 @@ static void startApp(short actionUser, Inpouts::stInfo Info, string Line, string
 			system("cls");
 			PrintDataClientsAndMenues::titelsMenue("Delete Client Screen");
 
-			deleteUser = Inpouts::inpouts_string_user("Please enter Account Name : ");
+			accountName = Inpouts::inpouts_string_user("Please enter Account Name : ");
 
 			infoClients = FileDataUpdateAndDelete::fillDataInVector(Line, S);
 
-			if (checkAndDeleteClients(infoClients, deleteUser, Info))
+			if (checkAndDeleteClients(infoClients, accountName, Info))
 			{
 
 				PrintDataClientsAndMenues::printOneDataClint(Info, "The following are the client datails.");
@@ -158,7 +158,7 @@ static void startApp(short actionUser, Inpouts::stInfo Info, string Line, string
 				if (toupper(YorN) == 'Y')
 				{
 
-					FileDataUpdateAndDelete::fillDataInFileAndUbdate(Info, Line, S, infoClients, deleteUser, false, false);
+					FileDataUpdateAndDelete::fillDataInFileAndUbdate(Info, Line, S, infoClients, accountName, false, false);
 					cout << "\nClient Delete Successfully.\n\n";
 				}
 				else
@@ -168,7 +168,7 @@ static void startApp(short actionUser, Inpouts::stInfo Info, string Line, string
 			}
 			else
 			{
-				cout << "Client with Account Name " << deleteUser << " is not find\n";
+				cout << "Client with Account Name " << accountName << " is not find\n";
 			}
 
 			system("pause");
@@ -179,11 +179,11 @@ static void startApp(short actionUser, Inpouts::stInfo Info, string Line, string
 			system("cls");
 			PrintDataClientsAndMenues::titelsMenue("Update Client Screen");
 
-			updateUser = Inpouts::inpouts_string_user("Please enter Account Name : ");
+			accountName = Inpouts::inpouts_string_user("Please enter Account Name : ");
 
 			infoClients = FileDataUpdateAndDelete::fillDataInVector(Line, S);
 
-			if (checkAndDeleteClients(infoClients, updateUser, Info))
+			if (checkAndDeleteClients(infoClients, accountName, Info))
 			{
 
 				PrintDataClientsAndMenues::printOneDataClint(Info, "The following are the client update.");
@@ -195,7 +195,7 @@ static void startApp(short actionUser, Inpouts::stInfo Info, string Line, string
 
 					Info = clientInfo(infoClients, Line, S, false);
 
-					FileDataUpdateAndDelete::fillDataInFileAndUbdate(Info, Line, S, infoClients, updateUser, false);
+					FileDataUpdateAndDelete::fillDataInFileAndUbdate(Info, Line, S, infoClients, accountName, false);
 
 					cout << "\nClient Update Successfully.\n\n";
 				}
@@ -206,7 +206,7 @@ static void startApp(short actionUser, Inpouts::stInfo Info, string Line, string
 			}
 			else
 			{
-				cout << "Client with Account Name " << updateUser << " is not find\n";
+				cout << "Client with Account Name " << accountName << " is not find\n";
 			}
 
 			system("pause");
@@ -217,42 +217,141 @@ static void startApp(short actionUser, Inpouts::stInfo Info, string Line, string
 			system("cls");
 			PrintDataClientsAndMenues::titelsMenue("Find Client Screen");
 
-			findUser = Inpouts::inpouts_string_user("Please enter Account Name : ");
+			accountName = Inpouts::inpouts_string_user("Please enter Account Name : ");
 			infoClients = FileDataUpdateAndDelete::fillDataInVector(Line, S);
 
-			if (checkAndDeleteClients(infoClients, findUser, Info))
+			if (checkAndDeleteClients(infoClients, accountName, Info))
 			{
 				PrintDataClientsAndMenues::printOneDataClint(Info, "The following are the client update.");
 			}
 			else
 			{
-				cout << "Client with Account Name " << findUser << " is not find\n";
+				cout << "Client with Account Name " << accountName << " is not find\n";
 			}
 
 			system("pause");
 		}
+		else if (actionUser == 6) {
+			do {
+
+				actionUser = PrintDataClientsAndMenues::actions("Transcations Main Menue", false);
+
+				if (1 == actionUser) {
+
+					PrintDataClientsAndMenues::titelsMenue("Deposit Screen");
+
+					accountName = Inpouts::inpouts_string_user("Please enter Account Name : ");
+
+					infoClients = FileDataUpdateAndDelete::fillDataInVector(Line, S);
+
+					if (checkAndDeleteClients(infoClients, accountName, Info)) {
+
+						PrintDataClientsAndMenues::printOneDataClint(Info, "The following are the client update.");
+
+						depositOrWithdraw = Inpouts::inpouts_int_user("Please enter deposit amount ?");
+
+						YorN = Inpouts::inpouts_char_user("Are you sure you want perfrom this tracsaction? y/n ?");
+
+						if ('Y' == toupper(YorN)) {
+							FileDataUpdateAndDelete::depositOrWithdraw(Info, Line, S, accountName, infoClients, depositOrWithdraw);
+						}
+						else {
+							continue;
+						}
+					}
+					else {
+						cout << "Client with Account Name " << accountName << " is not find\n";
+					}
+					system("pause");
+				}
+				else if (2 == actionUser) {
+
+					PrintDataClientsAndMenues::titelsMenue("Withdraw Screen");
+
+					accountName = Inpouts::inpouts_string_user("Please enter Account Name : ");
+
+
+					infoClients = FileDataUpdateAndDelete::fillDataInVector(Line, S);
+
+					if (checkAndDeleteClients(infoClients, accountName, Info)) {
+
+						PrintDataClientsAndMenues::printOneDataClint(Info, "The following are the client update.");
+
+						do {
+
+							depositOrWithdraw = Inpouts::inpouts_int_user("Please enter withdraw amount ?");
+
+							YorN = Inpouts::inpouts_char_user("Are you sure you want perfrom this tracsaction? y/n ?");
+
+							if ((Info.accountBalance - depositOrWithdraw) < 0) {
+
+								cout << "Amount Exaceeds tha balance, ";
+							}
+
+						} while ((Info.accountBalance - depositOrWithdraw) < 0);
+
+						if ('Y' == toupper(YorN)) {
+							FileDataUpdateAndDelete::depositOrWithdraw(Info, Line, S, accountName, infoClients, depositOrWithdraw, false);
+						}
+						else {
+							continue;
+						}
+					}
+					else {
+						cout << "Client with Account Name " << accountName << " is not find\n";
+					}
+	system("pause");
+
+				}
+				else if (3 == actionUser) {
+
+					float totalBalances = 0;
+
+					infoClients = FileDataUpdateAndDelete::fillDataInVector(Line, S);
+
+					PrintDataClientsAndMenues::mainInfoNames();
+
+					for (int i = 0; i < infoClients.size(); i++)
+					{
+
+						totalBalances += infoClients.at(i).accountBalance;
+
+						PrintDataClientsAndMenues::printDataClient(infoClients.at(i));
+					}
+					cout << "\n===========================================================================================\n\n";
+
+					cout << "\t\t\tTotal Balances = " << totalBalances << "\n\n";
+
+					system("pause");
+				}
+
+
+			} while (actionUser < 4);
+		}
+
 		else
 		{
 			system("cls");
 			PrintDataClientsAndMenues::titelsMenue("Program Ends :)");
 			break;
 		}
-	} while (actionUser != 6);
+	} while (actionUser != 7);
 }
 
 int main()
 {
 	// This is the variable section 
 	short actionUser = 1;
-	string DeleteUser, updateUser, findUser;
+	string accountName;
 	Inpouts::stInfo Info;
 	string Line = "";
 	const string S = "#//#";
 	char newAdd = 'Y';
 	char YorN = 'Y';
 	vector<Inpouts::stInfo> infoClients;
+	float depositOrWithdraw = 0;
 
-	startApp(actionUser, Info, Line, S, newAdd, YorN, infoClients, DeleteUser, updateUser, findUser);
+	startApp(actionUser, Info, Line, S, newAdd, YorN, infoClients, accountName, depositOrWithdraw);
 
 	return 0;
 }

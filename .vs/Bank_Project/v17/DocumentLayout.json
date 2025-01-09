@@ -5,6 +5,18 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My_Projects\\Bank_Project\\Bank Project\\Bank Project.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Bank Project\\Bank Project.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My_Projects\\Bank_Project\\Bank Project\\fileDataUpdateAndDelete.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Bank Project\\fileDataUpdateAndDelete.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My_Projects\\Bank_Project\\Bank Project\\inpoutsFuntion.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Bank Project\\inpoutsFuntion.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My_Projects\\Bank_Project\\Bank Project\\printDataClientsAndMenuesFunction.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Bank Project\\printDataClientsAndMenuesFunction.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +26,47 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "inpoutsFuntion.h",
+              "DocumentMoniker": "D:\\My_Projects\\Bank_Project\\Bank Project\\inpoutsFuntion.h",
+              "RelativeDocumentMoniker": "Bank Project\\inpoutsFuntion.h",
+              "ToolTip": "D:\\My_Projects\\Bank_Project\\Bank Project\\inpoutsFuntion.h",
+              "RelativeToolTip": "Bank Project\\inpoutsFuntion.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-01-09T04:45:33.204Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "printDataClientsAndMenuesFunction.h",
+              "DocumentMoniker": "D:\\My_Projects\\Bank_Project\\Bank Project\\printDataClientsAndMenuesFunction.h",
+              "RelativeDocumentMoniker": "Bank Project\\printDataClientsAndMenuesFunction.h",
+              "ToolTip": "D:\\My_Projects\\Bank_Project\\Bank Project\\printDataClientsAndMenuesFunction.h",
+              "RelativeToolTip": "Bank Project\\printDataClientsAndMenuesFunction.h",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAAAGQAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-01-09T04:02:45.513Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "fileDataUpdateAndDelete.h",
+              "DocumentMoniker": "D:\\My_Projects\\Bank_Project\\Bank Project\\fileDataUpdateAndDelete.h",
+              "RelativeDocumentMoniker": "Bank Project\\fileDataUpdateAndDelete.h",
+              "ToolTip": "D:\\My_Projects\\Bank_Project\\Bank Project\\fileDataUpdateAndDelete.h",
+              "RelativeToolTip": "Bank Project\\fileDataUpdateAndDelete.h",
+              "ViewState": "AgIAAEYAAACAzMzMzMwkwFkAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-01-09T04:00:12.116Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -24,9 +75,9 @@
               "RelativeDocumentMoniker": "Bank Project\\Bank Project.cpp",
               "ToolTip": "D:\\My_Projects\\Bank_Project\\Bank Project\\Bank Project.cpp",
               "RelativeToolTip": "Bank Project\\Bank Project.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAADsBAAAAmpmZmZkZwEQBAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-03T19:43:41.825Z",
+              "WhenOpened": "2025-01-09T03:47:51.37Z",
               "EditorCaption": ""
             }
           ]
